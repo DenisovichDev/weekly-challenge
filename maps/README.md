@@ -1,6 +1,6 @@
 # Maps Maps Maps 🗺
 
-My go at [Raphaël's](https://twitter.com/sableRaph) weekly challenge "Maps"
+My go at [Raphaël's](https://twitter.com/sableRaph) weekly challenge "Maps". [Here's](https://ivan-denisovich-py.github.io/weekly-challenge/maps/) live preview.
 
 ## Quick Overview
 
