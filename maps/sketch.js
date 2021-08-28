@@ -130,17 +130,17 @@ function load() {
 
     // Position Stack Reverse Geocoding Server
 
-    // fetch(geocodingURL)
-    //     .then((resp) => resp.json())
-    //     .then((jsonData) => {
-    //         if (jsonData.data) {
-    //             label = jsonData.data[0].label;
-    //             console.log(label);
-    //         } else {
-    //             console.log("Not a valid region 🎃");
-    //         }
-    //     })
-    //     .catch((err) => console.log(err));
+    fetch(geocodingURL)
+        .then((resp) => resp.json())
+        .then((jsonData) => {
+            if (jsonData.data) {
+                label = jsonData.data[0].label;
+                console.log(label);
+            } else {
+                console.log("Not a valid region 🎃");
+            }
+        })
+        .catch((err) => console.log(err));
 }
 
 // Getting Random Location Bounding Box
