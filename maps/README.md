@@ -12,7 +12,9 @@ Basically what it does:
 
 ## Some Examples
 
-<!-- Pictures Here -->
+![example-1](examples/example-1.png)
+![example-2](examples/example-2.png)
+![example-3](examples/example-3.png)
 
 ## Process
 

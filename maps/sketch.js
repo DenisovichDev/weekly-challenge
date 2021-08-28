@@ -35,22 +35,21 @@ const loading = document.querySelector(".loading");
 
 const coords = [
     [49, 10],
-    [0, 52],
-    //[27, 60],
-    [24, 37],
+    [-1, 51],
+    [-157, 62],
     [42, 40],
-    [140, 37],
+    [-56, 49],
     [39, 11],
-    [124, 36],
+    [-72, -51],
     [172, -43],
     [70, 24],
     [-81, 27],
     [-83, 9],
     [104, 13],
-    [87, 23],
+    [86, 22],
     [47, -19],
 ];
-let placeIndex = 0;
+let placeIndex = 3;
 
 newMapBtn.addEventListener("click", () => {
     load();
@@ -65,6 +64,7 @@ codeBtn.addEventListener("click", () => {
 function preload() {
     treasure = loadFont("assets/TreasureMapDeadhand-yLA3.ttf");
 
+    shuffle(coords, true);
     load();
 
     compasses = [
