@@ -61,6 +61,10 @@ codeBtn.addEventListener("click", () => {
     );
 });
 
+saveBtn.addEventListener("click", () => {
+    saveCanvas(cnv, "my-map", "jpg");
+});
+
 function preload() {
     treasure = loadFont("assets/TreasureMapDeadhand-yLA3.ttf");
 
@@ -109,10 +113,6 @@ function generateNewMap() {
         labelEl.innerHTML = label;
 
         imageLoaded = false;
-
-        saveBtn.addEventListener("click", () => {
-            saveCanvas(cnv, "my-map", "jpg");
-        });
     }
 }
 
