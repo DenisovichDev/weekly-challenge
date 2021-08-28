@@ -8,14 +8,16 @@
 let cnv;
 let treasure;
 let mapImg;
-let compass;
+let compasses;
 
 let mapScale = 2100; //in km (defines the width of the map)
 const r_earth = 6378; //in km (Don't even dare play with it)
 
 const gmrtURL = new URL("https://www.gmrt.org:443/services/ImageServer");
 let locationParams;
-const geocodingURL = new URL("http://api.positionstack.com/v1/reverse");
+const geocodingURL = new URL(
+    "https://revgeocode.search.hereapi.com/v1/revgeocode"
+);
 let geocodingParams;
 
 let xOff;
@@ -34,7 +36,7 @@ const loading = document.querySelector(".loading");
 const coords = [
     [49, 10],
     [0, 52],
-    [27, 60],
+    //[27, 60],
     [24, 37],
     [42, 40],
     [140, 37],
@@ -48,13 +50,16 @@ const coords = [
     [87, 23],
     [47, -19],
 ];
+let placeIndex = 0;
 
 newMapBtn.addEventListener("click", () => {
     load();
 });
 
 codeBtn.addEventListener("click", () => {
-    window.open("https://Ivan-Denisovich-py.github.io/link-tree");
+    window.open(
+        "https://github.com/Ivan-Denisovich-py/weekly-challenge/tree/main/maps"
+    );
 });
 
 function preload() {
@@ -62,7 +67,10 @@ function preload() {
 
     load();
 
-    compass = loadImage("assets/comp_3.png");
+    compasses = [
+        loadImage("assets/comp-2.png"),
+        loadImage("assets/comp-1.png"),
+    ];
 }
 
 function setup() {
@@ -86,7 +94,7 @@ function windowResized() {
 }
 
 function generateNewMap() {
-    background(255);
+    background(234, 214, 182);
     mapImg.resize(width + 50, height + 50);
     perlinDither(mapImg);
     if (imageNotCrap(mapImg)) {
@@ -97,7 +105,7 @@ function generateNewMap() {
         image(mapImg, -width / 2, -height / 2);
         pop();
 
-        image(compass, width - 130, 30, 100, 100);
+        image(random(compasses), width - 130, 30, 120, 120);
         labelEl.innerHTML = label;
 
         imageLoaded = false;
@@ -133,20 +141,23 @@ function load() {
     fetch(geocodingURL)
         .then((resp) => resp.json())
         .then((jsonData) => {
-            if (jsonData.data) {
-                label = jsonData.data[0].label;
+            if (jsonData.items[0]) {
+                label = jsonData.items[0].address.label;
                 console.log(label);
             } else {
                 console.log("Not a valid region 🎃");
             }
         })
         .catch((err) => console.log(err));
+
+    placeIndex++;
+    if (placeIndex >= coords.length) placeIndex = 0;
 }
 
 // Getting Random Location Bounding Box
 
 function getRandomCoordinates() {
-    const randomCoords = random(coords);
+    const randomCoords = coords[placeIndex];
     const location = createVector(randomCoords[0], randomCoords[1]);
 
     // const location = createVector(random(0, 360), random(-70, 70));
@@ -179,9 +190,10 @@ function getRandomCoordinates() {
     };
 
     geocodingParams = {
-        access_key: "fba8e3886644a8f765b970c605347fe5",
-        query: location.y + "," + location.x,
-        output: "json",
+        at: location.y + "," + location.x,
+        limit: 5,
+        apiKey: "1g5FobdATgBWTjLn_LQ_wPz2lajpHD1AjUd7MuEbB6k",
+        lang: "en-US",
     };
 }
 
