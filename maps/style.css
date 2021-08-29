@@ -23,9 +23,9 @@ body {
 
 .label {
     position: absolute;
-    bottom: 3.4rem;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 200px));
     font-size: 3rem;
     text-align: center;
     text-shadow: 1px 1px 3px #8c775b;
@@ -56,6 +56,11 @@ body {
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 20px 1px rgb(0 0 0 / 20%);
+    margin-top: 0;
+}
+
+.button:not(:last-of-type) {
+    margin-bottom: 6rem;
 }
 
 .generate {
