@@ -3813,7 +3813,7 @@ Uncomment line 3817 to see the pain.
 /* The skeleton */
 
 .skeleton {
-    /*comment this to see the skeleton to see actual pain */
+    /*comment this to see actual pain */
     visibility: hidden;
 
     position: absolute;
