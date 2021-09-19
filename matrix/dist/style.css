@@ -4,7 +4,7 @@ Rest of it was compiled to CSS via Sass.
 
 I have commented the whole file for your ease, no need to panic.
 
-If you are speedrunning, uncomment line 3817 to get the gist.
+If you are speedrunning, uncomment line 3765 to get the gist.
 Else, enjoy... I guess.
 */
 
@@ -250,7 +250,7 @@ but then I remembered I have a life and some self-esteem.
 I used Sass to do a for loop to add delays and then I compiled it to regular CSS.
 I don't think it counts as cheating.
 
-Skip to line 3306 for the next section.
+Skip to line 3380 for the next section.
 
 There may or may not be some Easter eggs in between. Just saying.
 */
@@ -3384,13 +3384,14 @@ There may or may not be some Easter eggs in between. Just saying.
 Okay, you made it! There wasn't actually any Easter eggs, by the way.
 Did you look for them?! I hope you didn't.
 
-The next 400 lines are regarding modeling the sunglass and other stuff that isn't rain.
+The next 500 lines are regarding modeling the sunglass
+and other stuff that isn't rain.
 */
 
 .glass-container {
     position: absolute;
     width: 8em;
-    height: 3em;
+    height: 5em;
     /* But what is preserve-3d? Well, read Amit's blog to find out */
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -3418,83 +3419,20 @@ The next 400 lines are regarding modeling the sunglass and other stuff that isn'
     transition: transform 500ms ease-in-out, filter 450ms ease-in-out,
         -webkit-transform 500ms ease-in-out, -webkit-filter 450ms ease-in-out;
 
-    top: 1.5em;
-    left: 4em;
+    top: 50%;
+    left: 50%;
 }
 
 /* 
 Modeling the sunglass! The most frustrating experience of my life. 
-Uncomment line 3817 to see the pain.
+Uncomment line 3765 to see the pain.
 */
 
 .glass-container .glass__lens {
     opacity: 0.6;
 }
 
-/* Defining basic shapes to add to the two lenses */
-
-.glass-container .glass__lens .circle-1 {
-    position: absolute;
-    border-radius: 50%;
-    width: 1em;
-    height: 1em;
-}
-
-.glass-container .glass__lens .circle-2 {
-    position: absolute;
-    border-radius: 50%;
-    width: 2.9em;
-    height: 2.9em;
-}
-
-.glass-container .glass__lens .circle-3 {
-    position: absolute;
-    border-radius: 50%;
-    width: 7.1em;
-    height: 7.1em;
-}
-
-.glass-container .glass__lens .circle-4 {
-    position: absolute;
-    border-radius: 50%;
-    width: 0.7em;
-    height: 0.7em;
-}
-
-.glass-container .glass__lens .oval-5 {
-    position: absolute;
-    border-radius: 50%;
-    width: 1.87em;
-    aspect-ratio: 0.831521;
-}
-
-.glass-container .glass__lens .tangent-4-5 {
-    position: absolute;
-    width: 0.5em;
-    height: 0.5em;
-}
-
-.glass-container .glass__lens .oval-7 {
-    position: absolute;
-    border-radius: 50%;
-    width: 3.556em;
-    aspect-ratio: 1.160442;
-}
-
-.glass-container .glass__lens .filler-1 {
-    position: absolute;
-    width: 1.7em;
-    height: 2em;
-}
-
-.glass-container .glass__lens .filler-2 {
-    position: absolute;
-    border-radius: 50%;
-    width: 1.5em;
-    aspect-ratio: 4;
-}
-
-/* Left lens. These will be mirrored in the right lens*/
+/* Left Lens */
 
 .glass-container .glass__lens-left .circle-1 {
     top: -1.12em;
@@ -3637,7 +3575,7 @@ Uncomment line 3817 to see the pain.
     transform: rotateZ(20deg);
 }
 
-/* The right lens */
+/* Right Lens */
 
 .glass-container .glass__lens-right .circle-1 {
     top: -1.12em;
@@ -3810,6 +3748,16 @@ Uncomment line 3817 to see the pain.
     filter: brightness(150%) grayscale(30%);
 }
 
+/* Shadows in hover */
+
+.glass-container:hover .shadow__left {
+    opacity: 0.3;
+}
+
+.glass-container:hover .shadow__right {
+    opacity: 0.3;
+}
+
 /* The skeleton */
 
 .skeleton {
@@ -3938,4 +3886,44 @@ Uncomment line 3817 to see the pain.
     left: 0.5em;
     -webkit-transform: rotateZ(-20deg);
     transform: rotateZ(-20deg);
+}
+
+/* Modeling The Shadows */
+
+.shadow {
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    top: 2.5em;
+    left: 4em;
+}
+
+.shadow__left {
+    opacity: 0;
+    position: absolute;
+    width: 12em;
+    height: 12em;
+    top: -5em;
+    left: -8.2em;
+    z-index: -1;
+    background-image: radial-gradient(var(--red), transparent 16%);
+    -webkit-transition: opacity 300ms 200ms ease-in-out;
+    transition: opacity 300ms 200ms ease-in-out;
+    -webkit-transform: rotateX(90deg) translateZ(-1em);
+    transform: rotateX(90deg) translateZ(-1em);
+}
+
+.shadow__right {
+    opacity: 0;
+    position: absolute;
+    width: 12em;
+    height: 12em;
+    top: -5em;
+    left: -4em;
+    z-index: -1;
+    background-image: radial-gradient(var(--blue), transparent 16%);
+    -webkit-transition: opacity 300ms 200ms ease-in-out;
+    transition: opacity 300ms 200ms ease-in-out;
+    -webkit-transform: rotateX(90deg) translateZ(-1em);
+    transform: rotateX(90deg) translateZ(-1em);
 }
