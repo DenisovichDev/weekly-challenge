@@ -17,3 +17,8 @@ Here's my submission for this weeks very unambiguous topic: non-computer:
 -   Now the job is simple. You roll two dice, one tells you which segment to choose and one tells you which color to choose. If you forget which one is which, you can always toss a coin. Repeat it 100 times and you'll end up with something like the following image. The only job left is to erase all the grid lines.
 
 ![Step Two](images/notErased.jpeg)
+
+## Honorable Mentions
+
+I actually made a [processing version](processing_example/) which you can deconstruct if you wish. I doubt that you will, because I bet you are speedrunning write now. However, here's screenshot from it:
+![Processing Version](processing_example/example.png)
