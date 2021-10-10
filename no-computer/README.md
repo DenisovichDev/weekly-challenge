@@ -20,5 +20,9 @@ Here's my submission for this weeks very unambiguous topic: non-computer:
 
 ## Honorable Mentions
 
-I actually made a [processing version](processing_example/) which you can deconstruct if you wish. I doubt that you will, because I bet you are speedrunning write now. However, here's screenshot from it:
+I actually made a [processing version](processing_example/) which you can deconstruct if you wish. I doubt that you will, because I bet you are speedrunning right now. However, here's some screenshots from it:
+
+### Processing Version
+
 ![Processing Version](processing_example/example.png)
+![Processing Version](processing_example/example_.png)

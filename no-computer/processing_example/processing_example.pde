@@ -28,7 +28,7 @@ int col = 800 / scl;
 void setup() {
   size(800, 800);
   background(255);
-  palette = palettes[floor(random(2))];
+  palette = palettes[floor(random(3))];
   grids = new ArrayList<Grid>();
 
   for (int i = 0; i < col; i ++) {
@@ -48,5 +48,5 @@ void draw() {
 }
 
 void keyPressed() {
-  saveFrame("example.png");
+  saveFrame("example_.png");
 }
