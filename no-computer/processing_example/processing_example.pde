@@ -10,15 +10,23 @@ color[][] palettes = {{#592941,
     #A7CAB1, 
     #CEDBC4, 
     #F4ECD6
-}};
+  }, 
+  {#264653, 
+    #2A9D8F, 
+    #8AB17D, 
+    #E9C46A, 
+    #F4A261, 
+    #E76F51
+  }
+};
 color[] palette;
-int scl = 120;
+int scl = 80;
 ArrayList<Grid> grids;
-int row = 1200 / scl;
-int col = 1200 / scl;
+int row = 800 / scl;
+int col = 800 / scl;
 
 void setup() {
-  size(1200, 1200);
+  size(800, 800);
   background(255);
   palette = palettes[floor(random(2))];
   grids = new ArrayList<Grid>();
