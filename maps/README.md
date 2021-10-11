@@ -1,6 +1,6 @@
 # Maps Maps Maps 🗺
 
-My go at [Raphaël's](https://twitter.com/sableRaph) weekly challenge "Maps". [Here's](https://ivan-denisovich-py.github.io/weekly-challenge/maps/) live preview.
+A vintage map generator which generates maps by selecting a random location and doing some dithering. [Here's](https://ivan-denisovich-py.github.io/weekly-challenge/maps/) live preview.
 
 ## Quick Overview
 
@@ -26,3 +26,7 @@ You can see the difference between a normal image, random dither and perlin nois
 
 ![example](assets/example.png)
 <sup><sup>From Left to Right: Original Image, Random Dither, Perlin Noise Dither</sup></sup>
+
+## Acknowledgements
+
+Originally made for [Raphaël's](https://twitter.com/sableRaph) weekly challenge "Maps". Thanks Raph for being motivating and gifting us a wonderful community.
