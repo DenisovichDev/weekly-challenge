@@ -24,5 +24,5 @@ I actually made a [processing version](processing_example/) which you can decons
 
 ### Processing Version
 
-![Processing Version](processing_example/example.png)
-![Processing Version](processing_example/example_.png)
+![Processing Version](processing_example/images/example.png)
+![Processing Version](processing_example/images/example_.png)

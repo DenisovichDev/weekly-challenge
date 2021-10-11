@@ -4,5 +4,5 @@ This is the processing version for my 10 print inspired [non-computer generative
 
 ### Screenshots
 
-![example 1](example.png)
-![example 2](example_.png)
+![example 1](images/example.png)
+![example 2](images/example_.png)
