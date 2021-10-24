@@ -22,4 +22,7 @@ Basically cubic bézier curves with randomised sine movement fucntions.
   <img src="screenshots/flower-10.png" width="300" alt="Flower" />
   <img src="screenshots/flower-11.png" width="300" alt="Flower" />
   <img src="screenshots/flower-12.png" width="300" alt="Flower" />
+  <img src="screenshots/flower-13.png" width="300" alt="Flower" />
+  <img src="screenshots/flower-14.png" width="300" alt="Flower" />
+  <img src="screenshots/flower-15.png" width="300" alt="Flower" />
 </p>
