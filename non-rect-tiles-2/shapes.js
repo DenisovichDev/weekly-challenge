@@ -1,36 +1,32 @@
-class Hexagon {
+class Octagon {
     constructor(x, y, l) {
         this.l = l;
-        this.n = 6;
-        this.internalAngle = radians(120);
-        this.color = color(hexColor);
-        this.bW = this.l * (2 * cos(PI / 3) + 1);
-        this.bH = 2 * this.l * cos(PI / 6);
+        this.n = 8;
+        this.centralAngle = radians(45);
+        this.color = color(octColor);
+        this.bW = this.l * (2 * cos(PI / 4) + 1);
+        this.bH = this.bW;
         this.x = x;
         this.y = y;
-        this.rotation = 0;
+        this.initAngle = PI / 8;
+        this.rotation = this.initAngle;
     }
 
     draw() {
-        // Did you know that transformations don't work inside
-        // beginShape() and endShape()? I DIDN'T!
-        // Sigh. However that's why I'm drawing it with vectors and stuff.
-        // I'm usually not that clever.
-
         push();
         fill(this.color);
-        noStroke();
+        stroke(this.color);
+        strokeWeight(0.5);
         translate(this.x, this.y);
         rotate(this.rotation);
         let angle = 0;
         let point = p5.Vector.fromAngle(angle);
-        point.setMag(this.l);
+        point.setMag(this.l / (2 * sin(this.centralAngle / 2)));
 
         beginShape();
-
         for (let i = 0; i < this.n; i++) {
             vertex(point.x, point.y);
-            angle += TAU / this.n;
+            angle += this.centralAngle;
             point.setHeading(angle);
         }
 
@@ -39,8 +35,8 @@ class Hexagon {
     }
 
     spin() {
-        if (!shouldHexSpin) {
-            this.rotation = 0;
+        if (!shouldOctSpin) {
+            this.rotation = this.initAngle;
             return;
         }
         this.rotation += spinSpeed;
@@ -55,14 +51,12 @@ class Diamond {
         this.n = 4;
         this.centralAngle = radians(90);
         this.color = color(diaColor);
-        this.bW = 2 * this.l * cos(PI / 3);
-        this.bH = 2 * this.l * cos(PI / 6);
+        this.bW = 2 * this.l * cos(PI / 4);
+        this.bH = 2 * this.l * cos(PI / 4);
         this.rotation = 0;
     }
 
     draw() {
-        // Weird way to draw a diamond, but okay
-
         push();
         fill(this.color);
         noStroke();
@@ -70,19 +64,15 @@ class Diamond {
         rotate(this.rotation);
         let angle = 0;
         let point = p5.Vector.fromAngle(angle);
-        let mag;
 
         beginShape();
 
         for (let i = 0; i < this.n; i++) {
-            i % 2 == 0
-                ? (mag = this.l * cos(PI / 3))
-                : (mag = this.l * sin(PI / 3));
-            point.setMag(mag);
+            point.setMag(this.l * cos(PI / 4));
 
             vertex(point.x, point.y);
 
-            angle += TAU / this.n;
+            angle += this.centralAngle;
             point.setHeading(angle);
         }
 
@@ -91,7 +81,7 @@ class Diamond {
     }
 
     spin() {
-        if (shouldHexSpin) {
+        if (shouldOctSpin) {
             this.rotation = 0;
             return;
         }

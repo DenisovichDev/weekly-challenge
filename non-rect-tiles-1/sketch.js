@@ -1,4 +1,5 @@
 // Tried to comment as much as I could, but sorry it's not much
+// Original Sketch: https://openprocessing.org/sketch/1352788
 
 let l, bg;
 let hexDim, diaDim, hexCols, hexRows, diaCols, diaRows;
@@ -27,8 +28,8 @@ function setup() {
     };
     hexCols = floor(width / hexDim.w) + 1;
     hexRows = floor(height / hexDim.h) + 1;
-    diaCols = hexCols + 1;
-    diaRows = hexCols + 1;
+    diaCols = hexCols + 2;
+    diaRows = hexRows + 2;
 
     for (let j = -1; j < hexRows; j++) {
         for (let i = -1; i < hexCols; i++) {
@@ -79,6 +80,4 @@ function draw() {
     }
     count++;
     if (count === hexSpinFrames + diaSpinFrames) count = 0;
-
-    console.log(shouldHexSpin);
 }
