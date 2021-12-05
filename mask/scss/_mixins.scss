@@ -1,0 +1,12 @@
+@mixin circle-generic {
+    // background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+}
+
+@mixin color-segment($color, $angle, $portion) {
+    background-image: linear-gradient(
+        $angle,
+        $color $portion,
+        transparent $portion 100%
+    );
+}

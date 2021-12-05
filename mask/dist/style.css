@@ -1,0 +1,323 @@
+:root {
+  --bgColor: rgb(73, 73, 73);
+  --maskBg: #e8e8e8;
+  --test: green;
+  --fg: #1a1a1a;
+  --pink: #fda7b4;
+  --eyeAngleOne: 300deg;
+  --eyeAngleTwo: 250deg;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bgColor);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  font-size: 50px;
+  overflow: hidden;
+}
+
+.noselect {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.bordered {
+  border: #fff 1px solid;
+}
+
+.mask-container {
+  position: absolute;
+}
+
+.mask-container .mask {
+  position: relative;
+  z-index: 100;
+}
+
+.mask-container .mask__middle {
+  position: absolute;
+  width: 3.46em;
+  height: 1.85em;
+  top: -1.5em;
+  left: -1.73em;
+  background-color: var(--maskBg);
+}
+
+.mask-container .mask__upper {
+  position: absolute;
+  width: 3.46em;
+  height: 1.8em;
+  left: -1.73em;
+  top: -2.32em;
+  border-radius: 50%;
+  background-color: var(--maskBg);
+}
+
+.mask-container .mask__lower--left {
+  position: absolute;
+  width: 5.7em;
+  height: 5.5em;
+  border-radius: 50%;
+  top: -3.1em;
+  left: -1.83em;
+  background-image: linear-gradient(50deg, var(--maskBg) 17%, transparent 17% 100%);
+}
+
+.mask-container .mask__lower--right {
+  position: absolute;
+  height: 5.5em;
+  width: 5.7em;
+  border-radius: 50%;
+  top: -3.1em;
+  left: -3.87em;
+  background-image: linear-gradient(-50deg, var(--maskBg) 17%, transparent 17% 100%);
+}
+
+.mask-container .mask__lower--chin {
+  position: absolute;
+  border-radius: 50%;
+  height: 1em;
+  width: 1.4em;
+  top: 1.125em;
+  left: -0.7em;
+  background-color: var(--maskBg);
+}
+
+.mask-container .mask__lower--joiner--left {
+  position: absolute;
+  border-radius: 50%;
+  height: 1em;
+  width: 0.8em;
+  top: -0.22em;
+  left: -1.734em;
+  background-color: var(--maskBg);
+}
+
+.mask-container .mask__lower--joiner--right {
+  position: absolute;
+  border-radius: 50%;
+  height: 1em;
+  width: 0.8em;
+  top: -0.22em;
+  left: 0.934em;
+  background-color: var(--maskBg);
+}
+
+.mask-container .mask__lower--filler-1 {
+  position: absolute;
+  height: 1.9em;
+  width: 2.5em;
+  top: 0em;
+  left: -1.25em;
+  background-color: var(--maskBg);
+  border-radius: 50%;
+}
+
+.mask-container .mask__lower--filler-2 {
+  position: absolute;
+  height: 0.5em;
+  width: 2.9em;
+  top: 0.5em;
+  left: -1.45em;
+  background-color: var(--maskBg);
+}
+
+.eye {
+  position: relative;
+  z-index: 200;
+}
+
+.eye__s--left {
+  position: absolute;
+  width: 0.75em;
+  height: 0.4em;
+  top: -0.76em;
+  left: -1.15em;
+  border-radius: 50%;
+  background-color: var(--fg);
+}
+
+.eye__s--right {
+  position: absolute;
+  width: 0.75em;
+  height: 0.4em;
+  top: -0.76em;
+  right: -1.15em;
+  border-radius: 50%;
+  background-color: var(--fg);
+}
+
+.eye__brow--left {
+  position: absolute;
+  width: 0.5em;
+  height: 1.1em;
+  top: -1.9em;
+  left: -0.6em;
+  -webkit-transform-origin: left 85%;
+          transform-origin: left 85%;
+  -webkit-transform: rotate(var(--eyeAngleOne));
+          transform: rotate(var(--eyeAngleOne));
+  background-image: linear-gradient(77deg, var(--fg) 20%, transparent 22% 100%);
+}
+
+.eye__brow--right {
+  position: absolute;
+  width: 0.5em;
+  height: 1.1em;
+  top: -1.9em;
+  right: -0.6em;
+  -webkit-transform-origin: right 85%;
+          transform-origin: right 85%;
+  -webkit-transform: rotate(calc(360deg - var(--eyeAngleOne)));
+          transform: rotate(calc(360deg - var(--eyeAngleOne)));
+  background-image: linear-gradient(-77deg, var(--fg) 20%, transparent 22% 100%);
+}
+
+.eye__brow.active > .eye__brow--left {
+  -webkit-transform: rotate(var(--eyeAngleTwo));
+          transform: rotate(var(--eyeAngleTwo));
+}
+
+.eye__brow.active > .eye__brow--right {
+  -webkit-transform: rotate(calc(360deg - var(--eyeAngleTwo)));
+          transform: rotate(calc(360deg - var(--eyeAngleTwo)));
+}
+
+.nose {
+  position: relative;
+  z-index: 200;
+}
+
+.nose__blush--left {
+  position: absolute;
+  opacity: 0.5;
+  width: 1em;
+  height: 1em;
+  top: -0.5em;
+  left: -1.6em;
+  background-image: radial-gradient(var(--pink) 0%, transparent 60%);
+}
+
+.nose__blush--right {
+  position: absolute;
+  opacity: 0.5;
+  width: 1em;
+  height: 1em;
+  top: -0.5em;
+  right: -1.6em;
+  background-image: radial-gradient(var(--pink) 0%, transparent 60%);
+}
+
+.nose__fold--left {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  top: -0.5em;
+  left: -1.6em;
+  opacity: 0.1;
+  border: solid 0.07em #000;
+  border-color: transparent transparent #000 transparent;
+  border-radius: 50%;
+}
+
+.nose__fold--right {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  top: -0.5em;
+  right: -1.6em;
+  opacity: 0.1;
+  border: solid 0.07em #000;
+  border-color: transparent transparent #000 transparent;
+  border-radius: 50%;
+}
+
+.nose__nosefold {
+  position: absolute;
+  width: 1em;
+  height: 2em;
+  top: -1.4em;
+  left: -0.5em;
+  opacity: 0.3;
+  border: solid 0.07em #000;
+  border-color: transparent transparent #000 transparent;
+  border-radius: 50%;
+}
+
+.beard {
+  position: relative;
+  z-index: 300;
+  top: 0.2em;
+}
+
+.beard__up {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 1.3em;
+  left: -0.3em;
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  border-top: 0.4em solid var(--fg);
+  border-radius: 0.2em;
+}
+
+.beard__down {
+  position: absolute;
+  width: 0.4em;
+  height: 0.9em;
+  top: 1.5em;
+  left: -0.2em;
+  background-color: var(--fg);
+  border-radius: 40%;
+}
+
+.stache {
+  position: relative;
+  z-index: 500;
+}
+
+.stache__left {
+  position: absolute;
+  width: 0.5em;
+  height: 1.1em;
+  top: 0em;
+  left: -0.2em;
+  -webkit-transform-origin: left 85%;
+          transform-origin: left 85%;
+  -webkit-transform: rotate(263deg);
+          transform: rotate(263deg);
+  background-image: linear-gradient(66deg, var(--fg) 20%, transparent 22% 100%);
+}
+
+.stache__right {
+  position: absolute;
+  width: 0.5em;
+  height: 1.1em;
+  top: 0em;
+  right: -0.2em;
+  -webkit-transform-origin: right 85%;
+          transform-origin: right 85%;
+  -webkit-transform: rotate(-263deg);
+          transform: rotate(-263deg);
+  background-image: linear-gradient(-66deg, var(--fg) 20%, transparent 22% 100%);
+}

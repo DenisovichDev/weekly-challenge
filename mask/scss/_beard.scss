@@ -1,0 +1,25 @@
+.beard {
+    position: relative;
+    z-index: 300;
+    top: 0.2em;
+    &__up {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 1.3em;
+        left: -0.3em;
+        border-left: 0.3em solid transparent;
+        border-right: 0.3em solid transparent;
+        border-top: 0.4em solid var(--fg);
+        border-radius: 0.2em;
+    }
+    &__down {
+        position: absolute;
+        width: 0.4em;
+        height: 0.9em;
+        top: 1.5em;
+        left: -0.2em;
+        background-color: var(--fg);
+        border-radius: 40%;
+    }
+}

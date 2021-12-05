@@ -1,0 +1,67 @@
+.eye {
+    position: relative;
+    z-index: 200;
+
+    // opacity: 0.7;
+
+    &__s {
+        &--left {
+            position: absolute;
+            width: 0.75em;
+            height: 0.4em;
+            top: -0.76em;
+            left: -1.15em;
+            @include circle-generic;
+            background-color: var(--fg);
+        }
+        &--right {
+            position: absolute;
+            width: 0.75em;
+            height: 0.4em;
+            top: -0.76em;
+            right: -1.15em;
+            @include circle-generic;
+            background-color: var(--fg);
+        }
+    }
+
+    &__brow {
+        &--left {
+            position: absolute;
+            width: 0.5em;
+            height: 1.1em;
+            top: -1.9em;
+            left: -0.6em;
+            transform-origin: left 85%;
+            transform: rotate(var(--eyeAngleOne));
+            background-image: linear-gradient(
+                77deg,
+                var(--fg) 20%,
+                transparent 22% 100%
+            );
+        }
+
+        &--right {
+            position: absolute;
+            width: 0.5em;
+            height: 1.1em;
+            top: -1.9em;
+            right: -0.6em;
+            transform-origin: right 85%;
+            transform: rotate(calc(360deg - var(--eyeAngleOne)));
+            background-image: linear-gradient(
+                -77deg,
+                var(--fg) 20%,
+                transparent 22% 100%
+            );
+        }
+        &.active {
+            & > .eye__brow--left {
+                transform: rotate(var(--eyeAngleTwo));
+            }
+            & > .eye__brow--right {
+                transform: rotate(calc(360deg - var(--eyeAngleTwo)));
+            }
+        }
+    }
+}

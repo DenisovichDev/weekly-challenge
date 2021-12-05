@@ -1,0 +1,94 @@
+.mask-container {
+    position: absolute;
+    .mask {
+        position: relative;
+        z-index: 100;
+
+        &__middle {
+            position: absolute;
+            width: 3.46em;
+            height: 1.85em;
+            top: -1.5em;
+            left: -1.73em;
+            background-color: var(--maskBg);
+        }
+        &__upper {
+            position: absolute;
+            width: 3.46em;
+            height: 1.8em;
+            left: -1.73em;
+            top: -2.32em;
+            @include circle-generic;
+            background-color: var(--maskBg);
+        }
+        &__lower {
+            &--left {
+                position: absolute;
+                width: 5.7em;
+                height: 5.5em;
+                @include circle-generic;
+                top: -3.1em;
+                left: -1.83em;
+                @include color-segment(var(--maskBg), 50deg, 17%);
+            }
+
+            &--right {
+                position: absolute;
+                height: 5.5em;
+                width: 5.7em;
+                @include circle-generic;
+                top: -3.1em;
+                left: 1.83em - 5.7em; // -left - diameter
+
+                @include color-segment(var(--maskBg), -50deg, 17%);
+            }
+
+            &--chin {
+                position: absolute;
+                @include circle-generic;
+                height: 1em;
+                width: 1.4em;
+                top: 1.125em;
+                left: -0.7em;
+                background-color: var(--maskBg);
+            }
+            &--joiner--left {
+                position: absolute;
+                @include circle-generic;
+                height: 1em;
+                width: 0.8em;
+                top: -0.22em;
+                left: -1.734em;
+                background-color: var(--maskBg);
+            }
+            &--joiner--right {
+                position: absolute;
+                @include circle-generic;
+                height: 1em;
+                width: 0.8em;
+                top: -0.22em;
+                left: 1.734em - 0.8em;
+                background-color: var(--maskBg);
+            }
+            &--filler-1 {
+                position: absolute;
+                height: 1.9em;
+                width: 2.5em;
+                top: 0em;
+                left: -1.25em;
+                background-color: var(--maskBg);
+                border-radius: 50%;
+            }
+            &--filler-2 {
+                position: absolute;
+                height: 0.5em;
+                width: 2.9em;
+                top: 0.5em;
+                left: -1.45em;
+                background-color: var(--maskBg);
+                // z-index: -1;
+                // border-radius: 50%;
+            }
+        }
+    }
+}

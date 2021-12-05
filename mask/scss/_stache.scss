@@ -1,0 +1,36 @@
+.stache {
+    position: relative;
+    z-index: 500;
+    &__left {
+        position: absolute;
+        width: 0.5em;
+        height: 1.1em;
+        top: 0em;
+        left: -0.2em;
+
+        transform-origin: left 85%;
+
+        transform: rotate(263deg);
+        background-image: linear-gradient(
+            66deg,
+            var(--fg) 20%,
+            transparent 22% 100%
+        );
+    }
+    &__right {
+        position: absolute;
+        width: 0.5em;
+        height: 1.1em;
+        top: 0em;
+        right: -0.2em;
+
+        transform-origin: right 85%;
+
+        transform: rotate(-263deg);
+        background-image: linear-gradient(
+            -66deg,
+            var(--fg) 20%,
+            transparent 22% 100%
+        );
+    }
+}
