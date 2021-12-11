@@ -1,7 +1,9 @@
 document.addEventListener("contextmenu", (event) => event.preventDefault())
 
-const start = document.querySelector(".start")
+const icons = document.querySelectorAll(".icon")
 
-start.addEventListener("click", (e) => {
-    window.open("https://editor.p5js.org/Shynif/full/F_tJRg7NH")
+icons.forEach((icon) => {
+    icon.addEventListener("click", (e) => {
+        window.open("https://editor.p5js.org/Shynif/full/F_tJRg7NH")
+    })
 })
