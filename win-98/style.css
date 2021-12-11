@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: msBold;
+    src: url(assets/msBold.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #008080;
+}
+
+#mainCanvas {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 10px;
+    height: 250px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.teleporter {
+    position: absolute;
+    margin: 10px;
+    left: 300px;
+}
+
+.taskbar {
+    position: absolute;
+    width: 100vw;
+    height: 30px;
+    background-color: #c0c0c0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.taskbar .start {
+    cursor: pointer;
+    width: 100px;
+    height: 80%;
+    /* background-image: url("assets/start.png");
+    background-repeat: no-repeat; */
+    background-color: #c0c0c0;
+    margin-left: 5px;
+    box-shadow: inset -2px -2px #000, inset 1px 1px #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 5px;
+}
+
+.taskbar .start > img {
+    width: 25px;
+}
+
+.taskbar .start > h1 {
+    font-family: msBold;
+    font-size: 12pt;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
