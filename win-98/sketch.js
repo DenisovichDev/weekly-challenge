@@ -1,23 +1,22 @@
-let ms
+/*
+ * Author: Denisovich (https://denisovichdev.github.io/link-tree/)
+ * Made for sableRaph (https://twitch.tv/sableRaph)
+ */
+
 let unitCell = 16
 let gw, gh, cols, rows
-let sprites
-let tile
-
+let sprites, font, tile
 let grid
 let gameLost = false
 let translateOriginX = 20
 let translateOriginY = 70
 
-let imgUnrev, imgEmp, imgBomb, imgFBomb, imgFlag, imgWFlag
+let imgUnrev, imgEmp, imgBomb, imgFBomb, imgFlag, imgWFlag, smiley1, smiley2
 let imgVal = []
-
 let wIcons = []
 
-let smiley1, smiley2, smileyPic
-
 let col = ["#C0C0C0", "#FFFFFF", "#7C7C7C"]
-let font
+
 function preload() {
     sprites = {
         tiles: loadImage("assets/tiles.png"),
@@ -44,7 +43,7 @@ function setup() {
 
     textFont(font)
     textSize(12)
-    textAlign(CORNER, CENTER)
+    textAlign(LEFT, CENTER)
 
     imgUnrev = sprites.tiles.get(0, 0, 16, 16)
     imgFBomb = sprites.tiles.get(6 * 16, 0, 16, 16)
