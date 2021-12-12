@@ -23,9 +23,15 @@ body {
 }
 
 #mainCanvas {
+    cursor: pointer;
+    visibility: visible;
     position: absolute;
     top: 20%;
     right: 20%;
+}
+
+.invisible {
+    visibility: hidden;
 }
 
 .container {
@@ -78,8 +84,6 @@ body {
     cursor: pointer;
     width: 100px;
     height: 80%;
-    /* background-image: url("assets/start.png");
-    background-repeat: no-repeat; */
     background-color: #c0c0c0;
     margin-left: 5px;
     box-shadow: inset -2px -2px #000, inset 1px 1px #fff;
@@ -101,6 +105,10 @@ body {
     padding: 0;
     margin: 0;
     margin-bottom: 5px;
+}
+
+.taskbar .start.minesweeper-icon {
+    width: 50px;
 }
 
 /* Help */
@@ -145,4 +153,18 @@ body {
 
 .help-page p {
     font-size: 10pt;
+}
+
+.popup {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5000;
+    width: 400px;
+}
+
+.popup.active {
+    visibility: visible;
 }

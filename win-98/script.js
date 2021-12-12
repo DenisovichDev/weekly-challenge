@@ -4,6 +4,8 @@ const icons = document.querySelectorAll(".raphroll")
 const recycleBin = document.querySelector("#rb")
 const help = document.querySelector(".help")
 const helpPage = document.querySelector(".help-page")
+const start = document.querySelector(".start")
+const popup = document.querySelector(".popup")
 
 icons.forEach((icon) => {
     icon.addEventListener("click", (e) => {
@@ -19,4 +21,6 @@ help.addEventListener("click", (e) => {
     helpPage.classList.toggle("active")
 })
 
-// https://www.msn.com/
+start.addEventListener("click", (e) => {
+    popup.classList.toggle("active")
+})
