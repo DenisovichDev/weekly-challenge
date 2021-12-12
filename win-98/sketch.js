@@ -1,7 +1,16 @@
 /*
  * Author: Denisovich (https://denisovichdev.github.io/link-tree/)
  * Made for sableRaph (https://twitch.tv/sableRaph)
+ *
+ * This basically the same old object oriented programming.
+ * I wanted to add a scoreboard on the top like the original
+ * one, but I didn't have the time to.
+ *
  */
+
+// Preventing right click menu openning
+// Very useful. Using the event 'contextmenu' rather than 'click'
+document.addEventListener("contextmenu", (event) => event.preventDefault())
 
 let unitCell = 16
 let gw, gh, cols, rows
@@ -21,7 +30,6 @@ function preload() {
     sprites = {
         tiles: loadImage("assets/tiles.png"),
         faces: loadImage("assets/faces.png"),
-        scores: loadImage("assets/scores.png"),
     }
     font = loadFont("assets/msbold.ttf")
     wIcons = [
@@ -33,8 +41,14 @@ function preload() {
 
 function setup() {
     let cnv = createCanvas(296, 346)
-    cnv.id("mainCanvas")
 
+    // Adding an ID to the canvas, so that I can move it
+    // using the CSS selector #mainCanvas
+    cnv.id("mainCanvas")
+    // I know there is some sort of class name for the default
+    // canvas, but I find this method more elegant. *sips tea*
+
+    // these are width and height of the grid
     gw = 256
     gh = 256
 
@@ -45,11 +59,15 @@ function setup() {
     textSize(12)
     textAlign(LEFT, CENTER)
 
+    // Sprite slicing with get(). Very fast and efficient.
     imgUnrev = sprites.tiles.get(0, 0, 16, 16)
     imgFBomb = sprites.tiles.get(6 * 16, 0, 16, 16)
     imgBomb = sprites.tiles.get(5 * 16, 0, 16, 16)
     imgFlag = sprites.tiles.get(2 * 16, 0, 16, 16)
     imgWFlag = sprites.tiles.get(7 * 16, 0, 16, 16)
+    // Funny story, I accidentally put this on draw() during developement
+    // And realized it very soon when the fan started going crazy.
+    // Almost fried up the GPU of my laptop.
 
     for (let i = 0; i < 8; i++) {
         imgVal.push(sprites.tiles.get(i * 16, 16, 16, 16))
@@ -99,6 +117,7 @@ function keyPressed() {
 
 // Utils
 
+// I was going to name it randint, but decided against it
 function randi(min, max) {
     return floor(random(min, max + 1))
 }
@@ -115,6 +134,7 @@ function resetGame() {
     grid.init()
 }
 
+// Draws the window like border out side.
 function drawBorder() {
     push()
     noStroke()
