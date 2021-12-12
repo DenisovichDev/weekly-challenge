@@ -4,7 +4,7 @@ Okay, this one was a bit painful.
 
 ## Instructions
 
-There are hidden easter eggs on the page, try to find it.
+There are hidden easter eggs on the page, so click on everything. Except the "Start" button.
 
 ## Details
 
