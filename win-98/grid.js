@@ -3,7 +3,9 @@ class Grid {
         this.rows = rows
         this.cols = cols
         this.cells = []
+        this.bombs = []
         this.showWrongFlags = false
+        this.numOfBombs = 30
         for (let j = 0; j < this.rows; j++) {
             for (let i = 0; i < this.cols; i++) {
                 this.cells.push(new Cell(i, j))
@@ -11,8 +13,10 @@ class Grid {
         }
 
         // Temp
-        for (let i = 0; i < 30; i++) {
-            random(this.cells).isBomb = true
+        for (let i = 0; i < this.numOfBombs; i++) {
+            let bombCell = random(this.cells)
+            bombCell.isBomb = true
+            this.bombs.push(bombCell)
         }
     }
 

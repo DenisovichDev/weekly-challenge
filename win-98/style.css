@@ -9,6 +9,11 @@
     src: url(assets/msBold.ttf);
 }
 
+@font-face {
+    font-family: ms;
+    src: url(assets/ms.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -20,7 +25,7 @@ body {
 #mainCanvas {
     position: absolute;
     top: 20%;
-    right: 10%;
+    right: 20%;
 }
 
 .container {
@@ -31,6 +36,20 @@ body {
     flex-direction: column;
     margin: 10px;
     height: 250px;
+    left: 0;
+    top: 0;
+}
+
+.assistance {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 10px;
+    width: 200px;
+    bottom: 30px;
+    left: 30%;
 }
 
 .icon {
@@ -82,4 +101,48 @@ body {
     padding: 0;
     margin: 0;
     margin-bottom: 5px;
+}
+
+/* Help */
+
+.help-page {
+    visibility: hidden;
+    position: absolute;
+    z-index: 200;
+    background-color: #c0c0c0;
+    width: 250px;
+    font-family: "ms";
+    bottom: 70px;
+    left: -100px;
+    box-shadow: inset -2px -2px #7c7c7c, inset 2px 2px #fff;
+}
+
+.help-page::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 20px solid #c0c0c0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    z-index: 600;
+    bottom: -18px;
+    left: calc(50% - 20px);
+}
+
+.help-page.active {
+    visibility: visible;
+}
+
+.help-page > * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.help-page h1 {
+    font-size: 12pt;
+}
+
+.help-page p {
+    font-size: 10pt;
 }

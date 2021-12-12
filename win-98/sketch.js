@@ -80,7 +80,7 @@ function mousePressed() {
 
     if (!gameLost) {
         if (mouseButton === LEFT) {
-            if (c.isBomb) {
+            if (c.isBomb && !c.flagged) {
                 c.firstBomb = true
                 gameLost = true
                 grid.revealWrongFlagsAndBombs()
@@ -167,6 +167,10 @@ function drawSmiley() {
     if (mouseIsPressed) {
         if (mouseX >= 136 && mouseX < 160 && mouseY >= 36 && mouseY < 60) {
             image(smiley2, 136, 36)
+            grid.bombs.forEach((bomb) => {
+                bomb.revealed = true
+            })
+            gameLost = true
             return
         }
     }
