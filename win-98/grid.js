@@ -36,6 +36,7 @@ class Grid {
     }
 
     checkWhatKind() {
+        // Counts the neighboring bombs and puts the value as this.value to show the numbers
         for (let i = 0; i < this.cols; i++) {
             for (let j = 0; j < this.rows; j++) {
                 let currentCell = this.cells[i + j * this.cols]
@@ -64,6 +65,8 @@ class Grid {
     }
 
     floodfill(i, j) {
+        // A very cool kind of recursive function. An empty cell will reveal the cells next to it
+        // Which will in turn will do the similar, resulting a floodfill sort of algorithm
         let currentCell = this.cellIdx(i, j)
 
         for (let yOff = -1; yOff < 2; yOff++) {
