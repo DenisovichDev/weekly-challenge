@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/css-doodle@0.28.2/css-doodle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Quilts</title>
+</head>
+<style>
+    :root {
+        --c1: #283D4C;
+        --c2: #3D7A84;
+        --c3: #CF984E;
+        --c4: #B46B56;
+        --rule: (--bg: @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                background: linear-gradient(@rand(360deg),
+                    @var(--bg) 0 50%,
+                    #0000 51%);
+            );
+        --pattern-1: (--fg : @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                --bg: @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                background-image: linear-gradient(135deg, @var(--fg) 25%, transparent 25%), linear-gradient(225deg, @var(--fg) 25%, transparent 25%), linear-gradient(45deg, @var(--fg) 25%, transparent 25%), linear-gradient(315deg, @var(--fg) 25%, @var(--bg) 25%);
+                background-position: 10px 0, 10px 0, 0 0, 0 0;
+                background-size: 20px 20px;
+                background-repeat: repeat;
+                transform: rotate(@rand(360)deg);
+            );
+        --pattern-2: (--fg : @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                --bg: @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                background-image: linear-gradient(0deg, @var(--bg) 50%, @var(--fg) 50%);
+                background-size: 22px 22px;
+                transform: rotate(@rand(360)deg);
+            );
+        --pattern-3: (--fg : @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                --bg: @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                background-image: repeating-linear-gradient(45deg, @var(--fg) 25%, transparent 25%, transparent 75%, @var(--fg) 75%, @var(--fg)), repeating-linear-gradient(45deg, @var(--fg) 25%, @var(--bg) 25%, @var(--bg) 75%, @var(--fg) 75%, @var(--fg));
+                background-position: 0 0, 10px 10px;
+                background-size: 20px 20px;
+                transform: rotate(@rand(360)deg);
+            );
+        --pattern-4: (--fg : @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                --bg: @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+                background-image: linear-gradient(45deg, @var(--fg) 50%, @var(--bg) 50%);
+                background-size: 14px 14px;
+                transform: rotate(@rand(360)deg);
+            );
+    }
+</style>
+
+<css-doodle click-to-update>
+    :doodle {
+        @grid: 10;
+        --cell-scale: 1;
+    }
+
+    :doodle(:hover) {
+        --cell-scale: 0.9;
+    }
+
+    overflow: hidden;
+    @size : calc(95vmin / @Y);
+    background: @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+    transform: scale(var(--cell-scale));
+    transition: transform 450ms ease @rand(0.4)s;
+
+    ::after {
+        content: '';
+        background: @pick(var(--c1), var(--c2), var(--c3), var(--c4));
+        @size: 100%;
+        /* Change to pattern-1,2,3,4 for a different pattern*/
+        @use: var(--pattern-1);
+        clip-path: @shape(points: @pick(3, 4, 5);
+                scale: @rand(0.8, 1.5);
+                move: @r(-1, 1), @r(-1, 1);
+            );
+    };
+</css-doodle>
+</html>
