@@ -224,7 +224,7 @@ function perlinDither(img) {
 /*
  * Some times the image processing produces blank images, due to
  * lag or I have missed some asynchronous behaviour and that is causing it.
- * Either way, I fixed it the bodgy way with the following function. If you what's the deal
+ * Either way, I fixed it the bodgy way with the following function. If you know what's the deal
  * you are more than welcome to fix it
  */
 
