@@ -9,7 +9,7 @@ class Circle {
 		this.d = dist(w / 2, h / 2, x, y)
 		this.randOff = random(10000)
 		this.noiseMax = 2
-		this.perlinOff = 0.01 // has to be an absolute value
+		this.perlinOff = 0.005 // has to be an absolute value
 		this.polarAngle = 0
 		this.polarPhase = random(TAU)
 		this.noiseScale = random(20, 70)
@@ -67,6 +67,11 @@ class Circle {
 		this.y = this.cy + noise(3000 + xoff, 3000 + yoff) * this.noiseScale
 
 		this.polarAngle += this.perlinOff
-		if (this.polarAngle >= TAU) this.polarAngle -= TAU
+		if (this.polarAngle >= TAU) {
+			this.polarAngle -= TAU
+			console.log("Loop rotation done")
+			console.log("Framecount => "+frameCount)
+			recording = false
+		}
 	}
 }

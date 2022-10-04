@@ -3,8 +3,16 @@
 
 let boundary, circles, numCircles, lines, numLines, sqiggs, numSquiggs
 let black = "#10060D"
+p5.disableFriendlyErrors = true
+
+// For Recording
+let recording = false
+let fCount = 121
+//--------------
+
+
 function setup() {
-    l = min(windowHeight, windowWidth)
+    l = 587//min(windowHeight, windowWidth)
     createCanvas(w = l, h = l)
 	bgBuff = createGraphics(w, h)
 
@@ -23,8 +31,8 @@ function setup() {
 	boundary = new BoundingCircle(l * 0.45, l * 0.05)
 	boundary.render()
 
-	ray_1 = new Ray(random(PI / 8, PI / 6), "#54A7A7")
-	ray_2 = new Ray(-random(PI / 8, PI / 6), "#E0B479")
+	ray_1 = new Ray(random(PI / 8, PI / 6), "#E0B479")
+	ray_2 = new Ray(-random(PI / 8, PI / 6), "#54A7A7")
 	ray_1.init()
 	ray_2.init()
 
@@ -53,6 +61,9 @@ function setup() {
 		let sl = new Sqiggly(r * cos(phi) + w/2, r * sin(phi) + h/2)
 		sqiggs.push(sl)
 	}
+
+	// For Recording
+	frameRate(10)
 }
 
 function draw() {
@@ -77,6 +88,14 @@ function draw() {
 	})
 
 	boundary.draw()
+
+	    // Recording
+    if (recording) {
+        if (fCount <= 180 && frameCount % 3 == 0) {
+            saveCanvas('out-' + fCount, 'png')
+            fCount++
+        }
+    }
 }
 
 function gorillaGrain(gA, buffer) {
