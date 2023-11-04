@@ -157,8 +157,8 @@ function asciiCircle(cx, cy, r, ch, borderCol, fill=false, fillCol=null) {
          
         // Print points based on 4-way symmetry
         if (fill) {
-            vertLine( x + cx, y + cy, -y + cy, 'P', fillCol)
-            vertLine(-x + cx, y + cy, -y + cy, 'P', fillCol)
+            vertLine( x + cx, y + cy, -y + cy, ch, fillCol)
+            vertLine(-x + cx, y + cy, -y + cy, ch, fillCol)
         }
         putch(ch, x + cx, y + cy, borderCol)
         putch(ch, -x + cx, y + cy, borderCol)
