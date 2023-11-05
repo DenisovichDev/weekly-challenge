@@ -1,10 +1,39 @@
-let r, buff, ws
+/**
+ * Made for #WCCChallenge @sableRaph
+ * By @DenisovichPy (https://denisovichdev.github.io/link-tree)
+ *
+ * Well, well, well, look who's back
+ * Sorry for not submitting for like a year or something...
+ * But hey, if the prompt is Molnar then even someone with an
+ * artists' block and too-much-life-stuff has to return!
+ * Also, I must say this feels like a #RecodeRethink and #WCCChallenge collab.
+ * Oh yeah, I'm adding all of this weeks submissions to Recode Rethink as well.
+ *
+ * Anyway, so this is based on an untitled Molnar piece (https://spalterdigital.com/artworks/1980/)
+ * The first ever RecodeRethink piece I did back in November 8th, 2021,
+ * was based on a Vera Molnar artwork, and I tried animate/rethink it in a similar way to 
+ * what I did two years ago. (Here's the original one: https://openprocessing.org/sketch/1344477)
+ *
+ * RecodeRethink has come a long way, so have all of us in the past two years,
+ * And I really do think any of this couldn't have been possible if giants like
+ * Molnar hadn't started making randomized algorithmic computer-assisted artworks
+ * taking random numbers from a thick book.
+ *
+ * I have tried to comment it as much as I can, Raph (aka Dan)
+ * so that the trig mess is more understandable.
+ *
+ * If you let it run for a bit, it's kinda meditative?
+ */
+
+
+// Global variables
 let lines = []
 let waves = []
 let randOffs = []
 
-let divs, scl;
+let divs, scl, ws;
 
+// Constants
 const PHI = 1.618033
 const rows = 3
 const lineLen = 12
@@ -52,15 +81,22 @@ function draw() {
 	for (let i = 0; i < rows; i++) {
         // Experiment
         let w = waves[i]
-        drawWave({ x : ws + randOffs[i], y: yStep / 2 + ws + i * yStep }, len, w.a1 + w.off[0], w.b1 + w.off[1], w.a2 + w.off[2], w.b2 + w.off[3], "#f24c63c8")
-        
+        drawWave({ x : ws + randOffs[i], y: yStep / 2 + ws + i * yStep },
+                len,
+                w.a1 + w.off[0],
+                w.b1 + w.off[1],
+                w.a2 + w.off[2],
+                w.b2 + w.off[3],
+                "#f24c63c8")
+        // increments the sine wave parameters to keep them moving
         for (let k = 0; k < 4; k++)
           w.off[k] += w.incr[k]
 	}
 
 }
 
-
+// Rather than me trying to explain this, I'll just give you
+// a desmos link: https://www.desmos.com/calculator/kjdhmmrdmc
 function drawWave(v1, len, a1, b1, a2, b2, col) {
     push()
     let unit = len / divs
@@ -81,7 +117,8 @@ function drawWave(v1, len, a1, b1, a2, b2, col) {
     pop()
 }
 
-let f = (x, a, b, s) => {
+// The repeating smooth sine wave function
+const f = (x, a, b, s) => {
     return s + 2 * sin(20 * sin(PHI * x + b) + a)
 }
 
