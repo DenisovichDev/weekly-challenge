@@ -32,6 +32,8 @@ const buffers = [];
 const replaceBuffers = [];
 
 const left = []; // list of indeces left to be replaced
+let record = false
+let counter = 0
 
 function preload() {
     font = loadFont('FellEnglishSC.ttf');
@@ -109,7 +111,19 @@ function draw() {
             rbf.drawBuffer();
         }
     });
+
+    if (record) {
+        if (frameCount % 2 == 0 && counter < 1000) {
+            save('greek-' + counter);
+            counter++
+        }
+    }
     
+}
+
+function keyPressed() {
+    frameRate(10);
+    record = true;
 }
 
 function getPos(idx) {
