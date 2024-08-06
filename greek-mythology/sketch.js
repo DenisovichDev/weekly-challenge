@@ -121,11 +121,6 @@ function draw() {
     
 }
 
-function keyPressed() {
-    frameRate(10);
-    record = true;
-}
-
 function getPos(idx) {
     return { x: ulen * (idx % cols), y: ulen * Math.floor(idx / cols) }
 }
